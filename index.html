@@ -6,47 +6,5 @@
 </script>
 <script src="https://d29gqhzevia104.cloudfront.net/047a504.js"></script>
 <script>_ff();</script>
-    <script>
-  function detectAndRedirect() {
-    // Detect if the user is inside TikTok or Instagram in-app browser
-    const isInAppBrowser = /musical_ly|tiktok|instagram/i.test(navigator.userAgent);
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-    if (isInAppBrowser && isMobile) {
-      const currentURL = window.location.href;
-
-      // Redirect on iOS devices
-      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        const browserSchemes = [
-          'googlechrome://',
-          'firefox://',
-          'opera://',
-          'brave://',
-          'edge://'
-        ];
-
-        let currentIndex = 0;
-
-        function tryNextBrowser() {
-          if (currentIndex < browserSchemes.length) {
-            window.location.href = browserSchemes[currentIndex] + currentURL;
-            currentIndex++;
-            setTimeout(tryNextBrowser, 300);
-          } else {
-            alert("We couldn't open the link automatically. Please copy and paste the link into an external browser.");
-          }
-        }
-
-        tryNextBrowser();
-      }
-      // Redirect on Android devices
-      else if (/Android/i.test(navigator.userAgent)) {
-        window.location.href = `intent://${window.location.host}${window.location.pathname}${window.location.search}#Intent;scheme=https;package=com.android.chrome;end;`;
-      }
-    }
-  }
-
-  window.addEventListener('load', detectAndRedirect);
-</script>
 </head>
 </body></html>
